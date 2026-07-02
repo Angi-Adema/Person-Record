@@ -125,7 +125,7 @@ public class Queue {
 		// Create a temporary variable to temporarily hold a value to swap
 		Person temp = array[first];
 		
-		// Set i equal to j since i is stored in the temprary variable
+		// Set i equal to j since i is stored in the temporary variable
 		array[first] = array[second];
 		
 		// Set j equal to the temporary value since i now holds the value of j

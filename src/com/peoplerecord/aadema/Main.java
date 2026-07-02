@@ -34,6 +34,12 @@ public class Main {
 			last = scnr.nextLine();
 			
 			System.out.println("Age: ");
+			
+			// Validate that the user entered a valid integer for the age
+			while (!scnr.hasNextInt()) {
+				System.out.println("Please enter a valid number for the age.");
+				scnr.nextLine();
+			}
 			age = scnr.nextInt();
 			
 			// Clear the scanner
