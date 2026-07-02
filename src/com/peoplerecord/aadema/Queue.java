@@ -25,6 +25,48 @@ public class Queue {
 		}
 	}
 	
+	// Use quick sort to sort data by last name in descending order
+	public void lastNamePartition(Person[] records, int low, int high) {
+		
+		// Define the pivot value
+		String pivot = records[high].getLastName();
+		
+		// Initialize i to one position before the start of the subarray
+		// to track elements less than pivot and elements still not processed
+		int i = low - 1;
+		
+		// Loop through the array and move smaller elements to the left
+		// of the pivot
+		for (int j = low; j <= high - 1; j++) {
+			
+			// Ignoring case, check to see if the element value is greater than the
+			// pivot value - .compareToIgnoreCase() returns an integer so if greater
+			// than the pivot value, the value belong on left side for ascending order
+			if (records[j].getLastName().compareToIgnoreCase(pivot) > 0) {
+				
+				// Increment i by 1
+				i++;
+				
+				// Call the swap() method to swap index i with index j in the array
+				swap(records, i, j);
+			}
+		}
+		
+	}
+	
+	// Helper method to handle swapping indexes
+	public void swap(Person[] array, int first, int second) {
+		
+		// Create a temporary variable to temporarily hold a value to swap
+		Person temp = array[first];
+		
+		// Set i equal to j since i is stored in the temprary variable
+		array[first] = array[second];
+		
+		// Set j equal to the temporary value since i now holds the value of j
+		array[second] = temp;
+	}
+	
 	// Helper methods to print descending sorted data by last name and age
 	public void descendingSortByLastName() {
 		
