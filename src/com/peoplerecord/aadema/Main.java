@@ -15,7 +15,7 @@ public class Main {
 		int age;
 		
 		// Create a new queue object to store full record
-		Queue object = new Queue();
+		Queue personInfo = new Queue();
 		
 		// Prompt the user to enter first name, last name, and age for five people
 		System.out.println("Please enter first name, last name, and age for five people.");
@@ -43,20 +43,20 @@ public class Main {
 			Person record = new Person(first, last, age);
 			
 			// Store the Person object record in the deque
-			object.addPerson(record);
+			personInfo.addPerson(record);
 		}
 		
 		// Print queue objects in the order the user entered them
 		System.out.println("\nOriginal Queue:");
-		object.printUnsortedQueue();
+		personInfo.printUnsortedQueue();
 		
 		// Print queue in descending order by last name
 		System.out.println("\nRecords sorted in descending order by last name:");
-		object.descendingSortByLastName();
+		personInfo.descendingSortByLastName();
 		
 		// Print the queue in descending order by age
 		System.out.println("\nRecords sorted in descending order by age:");
-		object.descendingSortByAge();
+		personInfo.descendingSortByAge();
 		
 		// Close the scanner
 		scnr.close();

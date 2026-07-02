@@ -31,8 +31,7 @@ public class Queue {
 		// Define the pivot value as the last value in the array
 		String pivot = records[high].getLastName();
 		
-		// Initialize i to one position before the start of the subarray
-		// to track elements less than pivot and elements still not processed
+		// Initialize i to track the boundary of elements greater than the pivot
 		int i = low - 1;
 		
 		// Loop through the array and move smaller elements to the left
@@ -41,7 +40,7 @@ public class Queue {
 			
 			// Ignoring case, check to see if the element value is greater than the
 			// pivot value - .compareToIgnoreCase() returns an integer so if greater
-			// than the pivot value, the value belong on left side for ascending order
+			// than the pivot value, the value belong on left side for descending order
 			if (records[j].getLastName().compareToIgnoreCase(pivot) > 0) {
 				
 				// Increment i by 1
@@ -80,15 +79,14 @@ public class Queue {
 		// Define the pivot value as the last value in the array
 		int pivot = records[high].getAge();
 		
-		// Initialize i to one position before the start of the subarray
-		// to track elements less than pivot and elements still not processed
+		// Initialize i to track the boundary of elements greater than the pivot
 		int i = low - 1;
 		
 		// Loop through the array and move smaller elements to the left
 		// of the pivot
 		for (int j = low; j <= high - 1; j++) {
 			
-			// Check to see if the element value is greater than the
+			// Check to see if the current age is greater than the pivot age
 			if (records[j].getAge() > pivot) {
 				
 				// Increment i by 1
@@ -111,10 +109,10 @@ public class Queue {
 		// Using recursion, create the base case where there is nothing left to sort
 		if (low < high) {
 			
-			// Store pivot index by calling lastNamePartition() to store the pivot's final index
+			// Store pivot index by calling agePartition() to store the pivot's final index
 			int pivotIndex = agePartition(records, low, high);
 			
-			// Recursivelly call quickSortLastName() to sort both subarrays first to the
+			// Recursively call quickSortAge() to sort both sub-arrays first to the
 			// left of the pivot then to the right of the pivot
 			quickSortAge(records, low, pivotIndex - 1);
 			quickSortAge(records, pivotIndex + 1, high);
