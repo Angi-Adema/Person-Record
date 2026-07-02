@@ -31,6 +31,6 @@ public class Person {
 	// Generate the toString() method
 	@Override
 	public String toString() {
-		return "Person [firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + "]";
+		return "Person firstName: " + firstName + ", lastName: " + lastName + ", age: " + age;
 	}
 }
