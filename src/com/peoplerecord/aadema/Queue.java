@@ -16,7 +16,7 @@ public class Queue {
 		deque.offer(person);
 	}
 	
-	// Print contents of the deque after user input
+	// Print contents of the queue after user input
 	public void printUnsortedQueue() {
 		
 		// Use enhanced for loop to print contents
