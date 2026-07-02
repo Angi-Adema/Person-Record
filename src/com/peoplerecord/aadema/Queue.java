@@ -26,9 +26,9 @@ public class Queue {
 	}
 	
 	// Use quick sort to sort data by last name in descending order
-	public void lastNamePartition(Person[] records, int low, int high) {
+	public int lastNamePartition(Person[] records, int low, int high) {
 		
-		// Define the pivot value
+		// Define the pivot value as the last value in the array
 		String pivot = records[high].getLastName();
 		
 		// Initialize i to one position before the start of the subarray
@@ -51,7 +51,74 @@ public class Queue {
 				swap(records, i, j);
 			}
 		}
+		// Move the pivot to its final position
+		swap(records, i + 1, high);
 		
+		// Tell quick sort where the pivot ended up
+		return i + 1;	  
+	}
+	
+	// Quick sort method implementation
+	public void quickSortLastName(Person[] records, int low, int high) {
+		
+		// Using recursion, create the base case where there is nothing left to sort
+		if (low < high) {
+			
+			// Store pivot index by calling lastNamePartition() to store the pivot's final index
+			int pivotIndex = lastNamePartition(records, low, high);
+			
+			// Recursivelly call quickSortLastName() to sort both subarrays first to the
+			// left of the pivot then to the right of the pivot
+			quickSortLastName(records, low, pivotIndex - 1);
+			quickSortLastName(records, pivotIndex + 1, high);
+		}
+	}
+	
+	// Similar to the descending sort above, we sort in descending order by the age
+	public int agePartition(Person[] records, int low, int high) {
+		
+		// Define the pivot value as the last value in the array
+		int pivot = records[high].getAge();
+		
+		// Initialize i to one position before the start of the subarray
+		// to track elements less than pivot and elements still not processed
+		int i = low - 1;
+		
+		// Loop through the array and move smaller elements to the left
+		// of the pivot
+		for (int j = low; j <= high - 1; j++) {
+			
+			// Check to see if the element value is greater than the
+			if (records[j].getAge() > pivot) {
+				
+				// Increment i by 1
+				i++;
+				
+				// Call the swap() method to swap index i with index j in the array
+				swap(records, i, j);
+			}
+		}
+		// Move the pivot to its final position
+		swap(records, i + 1, high);
+		
+		// Tell quick sort where the pivot ended up
+		return i + 1;	  
+	}
+	
+	// Quick sort method implementation
+	public void quickSortAge(Person[] records, int low, int high) {
+		
+		// Using recursion, create the base case where there is nothing left to sort
+		if (low < high) {
+			
+			// Store pivot index by calling lastNamePartition() to store the pivot's final index
+			int pivotIndex = agePartition(records, low, high);
+			
+			// Recursivelly call quickSortLastName() to sort both subarrays first to the
+			// left of the pivot then to the right of the pivot
+			quickSortAge(records, low, pivotIndex - 1);
+			quickSortAge(records, pivotIndex + 1, high);
+		}
 	}
 	
 	// Helper method to handle swapping indexes
@@ -81,6 +148,7 @@ public class Queue {
 		for (Person record : records) {
 			System.out.println(record);
 		}
+	}
 		
 	public void descendingSortByAge() {
 		
