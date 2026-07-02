@@ -23,7 +23,7 @@ public class Main {
 		// For loop to handle prompting the user to enter information five times
 		for (int i = 1; i <= 5; i++) {
 			
-			// Display person number the needs to enter info for
+			// Display the person number the user needs to enter information for
 			System.out.println("\nPerson Number: " + i);
 			
 			// Prompt user to enter information one field at a time
@@ -42,7 +42,7 @@ public class Main {
 			// Create a new Person object passing in the Person fields
 			Person record = new Person(first, last, age);
 			
-			// Store the Person object record in the deque
+			// Store the Person object record in the queue
 			personInfo.addPerson(record);
 		}
 		
